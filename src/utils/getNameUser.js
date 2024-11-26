@@ -7,7 +7,7 @@ export default function getUserInfoFromCookie() {
 
   
   if (!cookie) {
-    return { firstName : "pepito", lastName: "perez"};
+    return { firstName : "pepito", lastName: "perez", role: "student"};
   }
 
   const token = cookie.split('=')[1];
@@ -16,9 +16,10 @@ export default function getUserInfoFromCookie() {
     console.log(decoded)
 
     const firstName = decoded.first_name; 
-    const lastName = decoded.last_name;   
+    const lastName = decoded.last_name; 
+    const role = decoded.role;  
 
-    return { firstName, lastName };
+    return { firstName, lastName, role };
   } catch (error) {
     console.error('Error al decodificar el token:', error);
     return null;
